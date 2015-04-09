@@ -1,0 +1,19 @@
+Index: src/main/drupal/modules/mica/extensions/mica_datasets/mica_datasets.import_variables.inc
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/drupal/modules/mica/extensions/mica_datasets/mica_datasets.import_variables.inc	(revision 94001e364c56a443da178e81171df807e7602a10)
++++ src/main/drupal/modules/mica/extensions/mica_datasets/mica_datasets.import_variables.inc	(revision )
+@@ -249,7 +249,9 @@
+ function _mica_datasets_update_variable_wrapper($harmonization_variable, $dataset_language, $wrapper) {
+   if (!empty($harmonization_variable['comment'])) {
+     foreach ($harmonization_variable['comment'] as $language => $value) {
++      if (!empty($value)) {
+-      $wrapper->language($language)->field_comment->set($value);
++        $wrapper->language($language)->field_comment->set($value);
++      }
+     }
+   }
+   $wrapper->title->set($harmonization_variable['title']);
+\ No newline at end of file
